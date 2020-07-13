@@ -1,0 +1,27 @@
+{
+  "name": "friend_finder",
+  "version": "1.0.0",
+  "description": "Friend Finder App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellogoodbyemae/friend_finder.git"
+  },
+  "keywords": [
+    "express",
+    "hw"
+  ],
+  "author": "Margaret Egner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellogoodbyemae/friend_finder/issues"
+  },
+  "homepage": "https://github.com/hellogoodbyemae/friend_finder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
