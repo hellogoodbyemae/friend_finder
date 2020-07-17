@@ -33,14 +33,14 @@
                                 placeholder="" required=""></input>
                         </div>
                         <hr>
-                        
+
                         <div class="form-group">
                             <label for="question1">
                                 <h3>Question 1</h3>
                                 <p>I tend to be quiet.</p>
                             </label>
-                            <select class="form-control" id="question1" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q1">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -54,8 +54,8 @@
                                 <h3>Question 2</h3>
                                 <p>I am compassionate and have a soft heart.</p>
                             </label>
-                            <select class="form-control" id="question2" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q2" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -69,8 +69,8 @@
                                 <h3>Question 3</h3>
                                 <p>I am persistent and work until the task is finished.</p>
                             </label>
-                            <select class="form-control" id="question3" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q3" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -84,8 +84,8 @@
                                 <h3>Question 4</h3>
                                 <p>I worry a lot.</p>
                             </label>
-                            <select class="form-control" id="question4" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q4" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -99,8 +99,8 @@
                                 <h3>Question 5</h3>
                                 <p>I am fascinated by art, music or literature.</p>
                             </label>
-                            <select class="form-control" id="question5" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q5" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -115,8 +115,8 @@
                                 <p>I am dominant and act as a leader.
                                 </p>
                             </label>
-                            <select class="form-control" id="question6" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q6" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -131,8 +131,8 @@
                                 <p>I am reliable and can always be counted on.
                                 </p>
                             </label>
-                            <select class="form-control" id="question7" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q7" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -146,8 +146,8 @@
                                 <h3>Question 8</h3>
                                 <p>I assume the best about people.</p>
                             </label>
-                            <select class="form-control" id="question8" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q8" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -161,8 +161,8 @@
                                 <h3>Question 9</h3>
                                 <p>I am full of energy.</p>
                             </label>
-                            <select class="form-control" id="question9" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q9" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -176,8 +176,8 @@
                                 <h3>Question 10</h3>
                                 <p>I am outgoing and sociable.</p>
                             </label>
-                            <select class="form-control" id="question10" style="width: 180px;">
-                                <option></option>
+                            <select data-placeholder="" class="chosen-select" id="q10" style="width: 180px;">
+                                <option value=""></option>
                                 <option value="1">1 (Strongly Disagree)</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -228,116 +228,47 @@
         </div>
 
         <script type="text/javascript">
-            $("#submit").on("click", function(){
+            $("#submit").on("click", function () {
                 function validateForm() {
                     var isValid = true;
-                    $(".form-control").each(function() {
+                    $(".form-control").each(function () {
                         if ($(this).val() === "") isValid = false;
                     });
-                    $(".chosen-select").each(function() {
+                    $(".chosen-select").each(function () {
                         if ($(this).val() === "") isValid = false;
                     });
                     return isValid;
                 }
-
-                if(validateForm() === true) {
+                if (validateForm() == true) {
                     var userData = {
                         name: $("#name").val(),
                         photo: $("#photo").val(),
                         scores: [
-                            $("question1").val(),
-                            $("question2").val(),
-                            $("question3").val(),
-                            $("question4").val(),
-                            $("question5").val(),
-                            $("question6").val(),
-                            $("question7").val(),
-                            $("question8").val(),
-                            $("question9").val(),
-                            $("question10").val(),
+                            $("#q1").val(),
+                            $("#q2").val(),
+                            $("#q3").val(),
+                            $("#q4").val(),
+                            $("#q5").val(),
+                            $("#q6").val(),
+                            $("#q7").val(),
+                            $("#q8").val(),
+                            $("#q9").val(),
+                            $("#q10").val()
                         ]
                     };
                     var currentURL = window.location.origin;
-
-                    $.post(currentURL + "/api/friends", userData, function(data) {
+                    $.post(currentURL + "/api/friends", userData, function (data) {
                         $("#matchName").text(data.name);
                         $("#matchImg").attr("src", data.photo);
-                        $("resultsModal").modal("toggle");
+
+                        $("#resultsModal").modal("toggle");
                     });
                 } else {
                     alert("Please fill out all required fields");
                 }
+                return false;
             });
         </script>
-
-        <!-- <script type="text/javascript">
-            console.log("Page was refreshed");
-
-            // Capture the form inputs 
-            $("#submit").on("click", function (event) {
-
-                event.preventDefault();
-
-                console.log("working");
-
-                // Form validation
-                function validateForm() {
-                    var isValid = true;
-                    $('.form-control').each(function () {
-                        if ($(this).val() === '')
-                            isValid = false;
-                    });
-
-                    return isValid;
-                }
-
-                // If all required fields are filled
-                if (validateForm() == true) {
-                    console.log("valid");
-                    // Create an object for the user's data
-                    var userData = {
-                        name: $("#name").val(),
-                        photo: $("#image").val(),
-                        scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val(),]
-                    }
-
-                    console.log(userData);
-
-                    // Grab the URL of the website
-                    var currentURL = window.location.origin;
-
-                    // AJAX post the data to the friends API. 
-                    $.post(currentURL + "/api/friends", userData, function (data) {
-
-                        // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-
-                        $("#matchName").text(data.name);
-                        $('#matchImg').attr("src", data.photo);
-                        $('#matchImg').attr("height", 200);
-
-                        // Show the modal with the best match 
-                        $("#resultsModal").show();
-
-                    });
-
-                }
-                else {
-                    alert("Please fill out all fields before submitting!");
-                }
-
-                // return false;
-            });
-
-            $("#close").on("click", function () {
-                $("#resultsModal").hide();
-            });
-
-            $(".close").on("click", function () {
-                $("#resultsModal").hide();
-            });
-
-
-        </script> -->
 
     </body>
 
